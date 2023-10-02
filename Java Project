@@ -1,0 +1,88 @@
+import java.util.*;
+
+//guesser has guessnum and does gessingthe number as a gusser for the game and store it in guessnumasgusser variable
+class guesser {
+    int guessnumasgusser;
+
+    int Gussingnumasgusser() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hey! Guesser please guess the number");
+        guessnumasgusser = sc.nextInt();
+        return guessnumasgusser;
+
+    }
+}
+
+class player {
+    int guessnumasplayer;
+
+    int Guessingnumasplayer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hey! Player please guess your number");
+        guessnumasplayer = sc.nextInt();
+        return guessnumasplayer;
+    }
+}
+
+class umpair {
+    int numfromgusser;
+    int numfromplayer1;
+    int numfromplayer2;
+    int numfromplayer3;
+
+    void collectnumfromgusser() {
+        guesser g = new guesser();
+        numfromgusser = g.Gussingnumasgusser();
+    }
+
+    void collectnumfromplayers() {
+        player p1 = new player();
+        player p2 = new player();
+        player p3 = new player();
+
+        numfromplayer1 = p1.Guessingnumasplayer();
+        numfromplayer2 = p2.Guessingnumasplayer();
+        numfromplayer3 = p3.Guessingnumasplayer();
+    }
+
+    void compare() {
+        if (numfromgusser == numfromplayer1) {
+
+            if (numfromgusser == numfromplayer2 && numfromgusser == numfromplayer3) {
+                System.out.println("All are won the GAME");
+            } else if (numfromgusser == numfromplayer2) {
+                System.out.println("Player1 and Player2 won the GAME");
+            } else if (numfromgusser == numfromplayer3) {
+                System.out.println("Player1 and Player3 won the GAME");
+            } else {
+                System.out.println("Player1 won the GAME");
+            }
+        }
+
+        else if (numfromgusser == numfromplayer2) {
+            if (numfromgusser == numfromplayer3) {
+                System.out.println("Player2 and Player3 won the Game");
+            } else {
+                System.out.println("Player2 won the GAME");
+            }
+        }
+
+        else if (numfromgusser == numfromplayer3) {
+            System.out.println("Player3  won the GAME");
+        }
+
+        else {
+            System.out.println("No one won the game ,GAME OVER");
+        }
+    }
+}
+
+public class Game {
+    public static void main(String[] args) {
+        System.out.println("START THE GAME");
+        umpair u = new umpair();
+        u.collectnumfromgusser();
+        u.collectnumfromplayers();
+        u.compare();
+    }
+}
